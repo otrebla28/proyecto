@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+
+}
+.header{
+    display: flex;
+    background-color: rgb(223, 176, 22);
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+.appname {
+    flex: 6 1 auto;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.space {
+    flex: 6 1 auto;
+}
+
+.search{
+    flex: 1 1 auto;
+}
+.submenu{
+    flex: 1 1 auto;
+    padding-right: 10px;
+}
+.menu{
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: rgb(223, 176, 22);
+    color: white;
+    justify-content: space-between;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.camera{
+    flex: 1 1 auto;
+
+}
+.chats{
+    flex: 3 1 auto;
+    border-bottom: 3px solid white;
+    transition-duration: .4s;
+}
+.chats:hover, .estados:hover, .llamadas:hover{
+    background-color: lightgreen;
+}
+.estados{
+    flex: 3 1 auto;
+    transition-duration: .4s;
+}
+/*#link-estados y link-chats 
+los utilizo para personalizar el color del texto */
+#link-estados{
+    color: white;
+    text-decoration: none;
+   /* border-bottom: 3px solid white;*/
+  }
+
+  #link-chats{
+    color: white;
+    text-decoration: none;
+    /*border-bottom: 3px solid white;*/
+  }
+
+  /*-----------------------------------------*/
+  
+.llamadas{
+    flex: 3 1 auto;
+    transition-duration: .4s;
+}
+/*Estas propiedades permiten que los 3 row tengan las mismas propiedades*/
+.row, .rowE, .rowC{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.icon{
+    flex: 1 1 auto;
+    text-align: center;
+}
+.content{
+  display: flex; 
+  flex-direction: column; 
+  flex: 5 1 auto;
+  border-bottom: 1px solid gray;
+  padding-bottom: 3px;
+  
+    
+}
+.top-row, .botton-row{
+    display: flex;
+}
+.chatname, .contactname{
+    flex: 5 1 auto;
+}
+.chatname, .titulo{
+    font-weight: bold;
+}
+.timedate{
+    flex: 1 1 auto;
+    padding-right: 3px;
+    text-align: right;
+}
+.status{
+    border: 1px solid green;
+    border-radius: 45px;
+    padding: 1px;
+    background-color: green;
+    color: white;
+    margin-right: 5px;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+ 
+}
