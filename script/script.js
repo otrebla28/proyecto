@@ -49,24 +49,14 @@ divs.setAttribute('class', "status");
     divbr.appendChild(divcon);
     divbr.appendChild(divs);
 
-    //to.textContent = doc.data().to;
-   // message.textContent = doc.data().message;
+   
     divcn.textContent = doc.data().titulo;
     divcon.textContent = doc.data().contenido;
-    //divtd.textContent = doc.data().timestamp;
     divtd.textContent = doc.data().timestamp.toDate().toLocaleString();
-    //divs.textContent="1";
     document.querySelector(".conver").appendChild(div);
 }
 //----------Cargando información de la base de datos firebase----------
-//Se generan dos variables para hacer el filtro de información
-//function filtro(){
-//document.querySelector(".conver").innerHTML="";  
-/*filtro_ = document.getElementById("to").value;
-const fromto = db.collection('notas').where('to', '==', filtro_);
-const tofrom = db.collection('notas').where('from', '==', filtro_);*/
 
-//Se trae la colección de la base de datos con to=persona seleccionada
 db.collection('notas').orderBy("timestamp", "desc")
 .get()
 .then((snapshots)=>{
@@ -76,19 +66,6 @@ db.collection('notas').orderBy("timestamp", "desc")
     });
 
   });
-
- /* //Se trae la colección de la base de datos con from=persona seleccionada
-  tofrom.get()
-.then((snapshots)=>{
-    snapshots.docs.forEach(doc =>{
-        renderChat(doc);
-        console.log(doc.id, " => ", doc.data());
-    });
-
-  });*/
-//}
- //----------Finaliza la carga de información de la base de datos firebase----------
-
   //Función para escribir en la base de datos
   function writeNewPost(){
     var coleccion = db.collection('notas');
@@ -123,49 +100,39 @@ db.collection('notas').orderBy("timestamp", "desc")
   //hasta aquí la función para escribir en la base de datos
 
 
-/*
-//Esta función es para duplicar el DIV de Chats, llamadas y estados
-function duplicate(){
- var str_html='';
- //la variable deb se trae todos los div de la clase copy
- // chats, estados y llamadas"
- var deb =document.querySelectorAll('.copy');
- for(i=0; i<deb.length; i++){
-   // la variable activo nos dirá cuál elemento
-   // está seleccionado "chats, estados o llamadas"
-   var activo = deb[i].style.display;
-  //solo al elemento que esté activo se le agregan copias
-  // de su contenido
-   if (activo=="block"){
-    str_html = document.querySelector('.copy-'+i).innerHTML;
-    console.log(str_html) //grabar en consola
-    document.querySelector('.copy-'+i).innerHTML += str_html;
-   }
-}
-}
-*/
-
 //Esta función activa DIV estados "como seleccionado"
 // y elimina la selección del resto
 function activetab(renglon){
- var tabestados=document.querySelectorAll('#bottom-line');
- var edo = document.querySelectorAll('.copy');
- for(var i=0; i<tabestados.length; i++){
-     tabestados[i].style.borderBottom = '3px solid green';
-     edo[i].style.display="none";
+    var tabestados=document.querySelectorAll('#bottom-line');
+    var edo = document.querySelectorAll('.copy');
+    for(var i=0; i<tabestados.length; i++){
+        tabestados[i].style.borderBottom = '3px solid green';
+        edo[i].style.display="none";
 
-  }
+        }
 
- //al elemento que sea seleccionado se pinta línea blanca
- // y además se muestra su contenido con display block
- tabestados[renglon].style.borderBottom = '3px solid white';
- edo[renglon].style.display="block";
-
-
+        //al elemento que sea seleccionado se pinta línea blanca
+        // y además se muestra su contenido con display block
+        tabestados[renglon].style.borderBottom = '3px solid white';
+        edo[renglon].style.display="block";
 }
 //----------------------------------------------    
 
-//Aquí implementamos la nueva función "al cargar"
+//Función para cachar el id del registro al momento de dar clic sobre él
+function showid(idelement){
+  console.log(idelement.id)
+}
+
+// fin de la función
+
+
+
+
+
+
+
+
+  //Aquí implementamos la nueva función "al cargar"
 document.addEventListener('DOMContentLoaded',function(){
 document.querySelectorAll('#bottom-line').forEach(function (div) {
 div.onclick=function(){
@@ -177,13 +144,10 @@ div.onclick=function(){
     //solo llama a la función activetab y le envía el parametro
     //contenido en el dataview
     activetab(div.dataset.view);
-   // filtro();
+   
 
      
 };
 });
-/*
-window.onscroll=function(){
-this.console.log(window.scrollY)
-}*/
+
 });

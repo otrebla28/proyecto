@@ -20,6 +20,7 @@
     
 </head>
 <body>
+
     <div class="header">
         <div class="appname">Notas Firebase</div>
         <div class="space"></div>
@@ -30,82 +31,33 @@
             <img src="img/settings.png" height="20px" width="6px" alt="settings">
         </div>
     </div>
+
 <!--Fila de menú principal-->
     <div class="menu">
-            <!--<div class="camera">
-                <img src="img/camera.png" height="20p" width="20px" alt="camera">
-            </div> -->
+            
             <div id="bottom-line" class="chats" data-view="0">Mis notas</div>
-            <!--<div id="bottom-line" class="estados" data-view="1">Estados</div>
-           <div id="bottom-line" class="llamadas" data-view="2">Llamadas</div> -->
+            
     </div>
 <!--Fin de la Fila de menú principal-->
 
-  <!--Fila de chats-->
-<div id="copychats" class="copy"> 
-    <div class="copy-0">
-        
-<!--Aquí se inserta el form 
-
-<form id="send-message">
-    <div class="form">
-        <div class="to">
-            <select name="to" id="to" onchange="filtro()">
-                <option value="Destinatario" >Destinatario:</option>
-                <option value="Erick">Erick</option>
-                <option value="Irma">Irma</option>
-                <option value="Hugo">Hugo</option>
-                <option value="Alex">Alex</option>
-                <option value="Joel">Joel</option>
-                <option value="Jesus">Jesus</option>
-                <option value="Tomas">Tomas</option>
-                <option value="Edgardo">Edgardo</option>
-                <option value="Alberto">Alberto</option>
-            </select>
-        </div>
-        <div class="message">
-            <input id="message" type="text" placeholder="Mensaje ...">
-        </div>
-        <div>
-            <div onclick="writeNewPost()">Enviar</div>
-        </div>
-    </div>
-</form> -->
+<!-- -------------------------------- -->
+ <!--Clase para ser llenada con el el screenShot-->
+ <div class="conver" id="mainnote" onclick="showid(this)">
+      
+ </div>
+<!--Fin de la  class para ser llenada por el screenShot-->
+<!-- -------------------------------- -->
 
 <!--Fin del Form-->
-
-<div class="conver" >
-       <!-- <div class="row"> 
-            <div class="icon">
-                <img src="img/black-power-button-1428134_640.png" height="30px" width="30px" alt="icono">
-            </div>
-                <div class="content">
-                    <div class="top-row">
-                        <div class="chatname">ciencias</div>
-                        <div class="timedate">7:30 a.m.</div>
-                    </div>
-                    <div class="botton-row">
-                        <div class="contactname">Samuel: Buen día</div>
-                        <div class="status">1</div>
-                    </div>
-                    
-                </div>
-        </div> -->
-    </div>
- </div>   
-</div> 
-
-<!--Aquí se inserta el form -->
-
 <form id="send-message">
     <div class="form">
             
             <div class="titulo">
-                 <input id="titulo" type="text" placeholder="Títilo de la nota">
+                 <input id="titulo" type="text" placeholder="Títilo de la nota" required>
             </div>
         
             <div class="message">
-                 <input id="message" type="text" placeholder="Mensaje ...">
+                 <input id="message" type="textare" placeholder="Mensaje ..." required>
             </div>
             
         <div>
@@ -116,13 +68,8 @@
 
 <!--Fin del Form-->
 
+<!--Este Row será para mostrar el contenido de las notas-->
 
-
-
-
-
-<!--Fin de la Fila de chats-->
-<!--
 <div class="copy" style="display: none;">  
     <div class="copy-1">
     <div id="e-row"  class="rowE">  
@@ -142,29 +89,7 @@
             </div>
     </div> 
 </div>
-</div> --> <!--Fin de la Fila de estados-->
-
-<!--Row para llamadas
-<div class="copy" style="display: none;">  
-    <div class="copy-2">
-     <div id="c-row"  class="rowC">  
-        <div class="icon">
-            <img src="img/black-power-button-1428134_640.png" height="30px" width="30px" alt="icono">
-        </div>
-            <div class="content">
-                <div class="top-row">
-                    <div class="chatname">Llamadas</div>
-                    <div class="timedate">19:51 p.m.</div>
-                </div>
-                <div class="botton-row">
-                    <div class="contactname">Alberto: A trabajar</div>
-                    <div class="status">1</div>
-                </div>
-                
-            </div>
-    </div> 
-</div>
-</div> -->
+</div>  <!--Fin de Row para mostrar contenido de las notas-->
 
      
 
