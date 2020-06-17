@@ -39,7 +39,8 @@ divtd.setAttribute('class', "timedate");
 divbr.setAttribute('class', "bottom-row")
 divcon.setAttribute('class', "contactname");
 divs.setAttribute('class', "status");    
-
+div.setAttribute('onClick',"showid(this)");
+div.setAttribute('id',doc.id);
     
     div.appendChild(divc);
     divc.appendChild(divtp);
