@@ -18,7 +18,7 @@
 const db = firebase.firestore();
 
 //función para generar los campos de la base de firebase
-
+ordena();
 function renderChat(doc){
     //Let variable que solo existe dentro de la función
 let div = document.createElement('div');
@@ -57,15 +57,19 @@ divs.setAttribute('class', "status");
 }
 //----------Cargando información de la base de datos firebase----------
 
+function ordena(){
+
 db.collection('notas').orderBy("timestamp", "desc")
 .get()
 .then((snapshots)=>{
     snapshots.docs.forEach(doc =>{
+      
         renderChat(doc);
         console.log(doc.id, " => ", doc.data());
     });
 
   });
+}
   //Función para escribir en la base de datos
   function writeNewPost(){
     var coleccion = db.collection('notas');
@@ -89,7 +93,8 @@ db.collection('notas').orderBy("timestamp", "desc")
            
             db.collection("notas").doc(docRef.id).get().then(function(doc){
              
-                renderChat(doc)});
+              // renderChat(doc)});
+               ordena(doc)});
         })
         .catch(function(error) {
             console.error("Error al escribir en la base de datos ", error);
@@ -125,14 +130,7 @@ function showid(idelement){
 
 // fin de la función
 
-
-
-
-
-
-
-
-  //Aquí implementamos la nueva función "al cargar"
+ //Aquí implementamos la nueva función "al cargar"
 document.addEventListener('DOMContentLoaded',function(){
 document.querySelectorAll('#bottom-line').forEach(function (div) {
 div.onclick=function(){
@@ -144,7 +142,7 @@ div.onclick=function(){
     //solo llama a la función activetab y le envía el parametro
     //contenido en el dataview
     activetab(div.dataset.view);
-   
+    
 
      
 };
