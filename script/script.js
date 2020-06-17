@@ -94,8 +94,7 @@ db.collection('notas').orderBy("timestamp", "desc")
            
             db.collection("notas").doc(docRef.id).get().then(function(doc){
              
-              // renderChat(doc)});
-               ordena(doc)});
+            ordena(doc)});
         })
         .catch(function(error) {
             console.error("Error al escribir en la base de datos ", error);
@@ -123,11 +122,85 @@ function activetab(renglon){
         edo[renglon].style.display="block";
 }
 //----------------------------------------------    
+function llenarnota(doc){
 
+  alert("Entra a la función llenar nota");
+  //Let variable que solo existe dentro de la función
+  let div2 = document.createElement('div');
+  let divc2 = document.createElement('div');
+  let divtp2= document.createElement('div');
+  let divcn2 = document.createElement('div');
+  let divbr2 = document.createElement('div');
+  let divtd2= document.createElement('div');
+  let divcon2 = document.createElement('div');
+  let divs2= document.createElement('div');
+  
+  div2.setAttribute('class',"row");
+  div2.setAttribute('data-id', doc.id);
+  divc2.setAttribute('class', "content");
+  divtp2.setAttribute('class', "top-row");
+  divcn2.setAttribute('class', "titulo");
+  divtd2.setAttribute('class', "timedate");
+  divbr2.setAttribute('class', "bottom-row")
+  divcon2.setAttribute('class', "contactname");
+  divs2.setAttribute('class', "status");    
+  //div.setAttribute('onClick',"showid(this)");
+  //div.setAttribute('id',doc.id);
+      
+      div2.appendChild(divc2);
+      divc2.appendChild(divtp2);
+      divc2.appendChild(divbr2);
+      divtp2.appendChild(divcn2);
+      divtp2.appendChild(divtd2);
+      divbr2.appendChild(divcon2);
+      divbr2.appendChild(divs2);
+  
+     
+      divcn2.textContent = doc.data().titulo;
+      divcon2.textContent = doc.data().contenido;
+      divtd2.textContent = doc.data().timestamp.toDate().toLocaleString();
+      document.querySelector(".notasimple").appendChild(div2);
+  
+  
+  }
+  
 //Función para cachar el id del registro al momento de dar clic sobre él
 function showid(idelement){
-  console.log(idelement.id)
+  console.log(idelement.id);
+  var x = document.getElementById("maindiv");
+  var y = document.getElementById("seconddiv");
+  var id_= idelement.id;
+ 
+
+  x.style.display="none";
+  y.style.display="block";
+
+alert("Antes de la consulta where "+id_);
+
+db.collection("notas").doc(id_)
+    .get().then(function (doc) {
+            var nota1 = doc.data();
+            console.log("Id Notas", nota1);
+            llenarnota(doc);
+    }).catch(function (error) {
+            console.log("Error", error);
+    });
+
+
+/*db.collection('notas').doc(id_)
+.get()
+.then((snapshots)=>{
+    snapshots.docs.forEach(doc =>{
+      alert("Antes del llamado a llenar nota");
+        llenarnota(doc);
+        console.log(doc.id, " => ", doc.data());
+    });
+
+  });*/
+
+
 }
+
 
 // fin de la función
 
